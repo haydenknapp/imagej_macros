@@ -135,7 +135,7 @@ macro "MATL stitching"{
 			var dummyName = insertBetween("tiff{iiii}.tif", tifNum);
 			tifNum++;
 			var dummyEntry = getEntry(dummyXval, dummyYval, dummyName);
-			tileConfig += dummyEntry;
+			//tileConfig += dummyEntry;
 			/* Save the dummy image to disk under the same name. */
 			//saveAs("Tiff", imagePath + dummyName);
 			imagesProcessed++;
@@ -154,7 +154,7 @@ macro "MATL stitching"{
 			var dummyName = insertBetween("tiff{iiii}.tif", tifNum);
 			tifNum++;
 			var dummyEntry = getEntry(dummyXval, dummyYval, dummyName);
-			tileConfig += dummyEntry;
+			//tileConfig += dummyEntry;
 			/* Save the dummy image to disk under the same name. */
 			//saveAs("Tiff", imagePath + dummyName);
 			imagesProcessed++;
