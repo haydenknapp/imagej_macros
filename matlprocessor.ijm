@@ -87,6 +87,10 @@ macro "MATL stitching"{
 	/* Get the pattern of the OIB files. Should be something like Image00{ii}_01.oib */
 	var pattern = getString("Enter the pattern of the existing image names. E.g. Image00{ii}_01.oib.", pattern);
 
+	/* Get the x and y offsets for how much the images is off by. Can be negative. 0 for no offset. */
+	var xOffset = getString("Enter the x offset for the images. 0 if there is no offset.", xOffset);
+	var yOffset = getString("Enter the y offset for the images. 0 if there is no offset.", yOffset);
+
 	/* Read in the matl data */
 	var matlData = File.openAsString(matlPath);
 
@@ -133,12 +137,12 @@ macro "MATL stitching"{
 			var dummyEntry = getEntry(dummyXval, dummyYval, dummyName);
 			tileConfig += dummyEntry;
 			/* Save the dummy image to disk under the same name. */
-			saveAs("Tiff", imagePath + dummyName);
+			//saveAs("Tiff", imagePath + dummyName);
 			imagesProcessed++;
 		}
 		/* Increment the number of the oib. */
 		oibNum++;
-		var newEntry = getEntry(xval * pixelLength, yval * pixelLength, insertBetween(pattern, oibNum));
+		var newEntry = getEntry(xval * pixelLength + (xval) * xOffset, yval * pixelLength + (yval) * yOffset , insertBetween(pattern, oibNum));
 		tileConfig += newEntry;
 
 		imagesProcessed++;
@@ -152,7 +156,7 @@ macro "MATL stitching"{
 			var dummyEntry = getEntry(dummyXval, dummyYval, dummyName);
 			tileConfig += dummyEntry;
 			/* Save the dummy image to disk under the same name. */
-			saveAs("Tiff", imagePath + dummyName);
+			//saveAs("Tiff", imagePath + dummyName);
 			imagesProcessed++;
 	}
 	print(tileConfig);
