@@ -102,8 +102,8 @@ macro "MATL stitching"{
 	var tileConfig = "dim = 3\n";
 
 	/* Create a dummy black image so we can save it. */
-	open(imagePath + insertBetween(pattern, 1));
-	run("Set...", "value=0 stack");
+	//open(imagePath + insertBetween(pattern, 1));
+	//run("Set...", "value=0 stack");
 
 	/* The current amount of images added to the tileConfig variable. */
 	var imagesProcessed = 0;
